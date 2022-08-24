@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
@@ -29,15 +31,72 @@ Infinity делать не нужно, однако, в случае если б
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  let symbols = "+-*/";
+    const a = 5;//+prompt(`Введите число 'a'`);
+    const b = 2;//+prompt(`Введите число 'b'`);
+    const operation = "/"; 
+    const arg1 = a;
+    const arg2 = b; 
+
+    
 
   function mathOperation(arg1, arg2, operation) {
     
+    switch (arg1, arg2, operation) {
+      case "+":
+      return console.log(calcAmount(a, b));
+      
+      case "-":
+      return console.log(calcDifference);
+      
+      case "*":
+      return console.log(calcMultiplication);
+      
+      case operation = "/":
+      return calcDivision(arg1, arg2);
+      
+      default:
+      return console.log('NaN');
+    }
   }
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+
+    /**
+    *  Стрелочная функция возвращает сумму переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    const calcAmount = (a, b) => a + b;
+    calcAmount(a, b);
+
+    /**
+    * Стрелочная функция возвращает абсолютное значение разности 
+    переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    const calcDifference = (a, b) => Math.abs(a - b);
+    calcDifference(a, b);
+
+    /**
+    * Стрелочная функция возвращает произведение переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    const calcMultiplication = (a, b) => a * b;
+    calcMultiplication(a, b);
+
+    /**
+    * Стрелочная функция возвращает частное от переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    function calcDivision(a, b){
+      return console.log(a / b);
+    } 
+    mathOperation(arg1, arg2, operation);
+  </script>
 </body>
+
 </html>
