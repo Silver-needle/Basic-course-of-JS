@@ -27,11 +27,13 @@
 -->
 <script>
   "use strict";
+
   const inputNumber = +prompt('Введите число');
   console.log(`В числе ${inputNumber} \
 количество сотен: ${Math.trunc(inputNumber / 100 % 10)}, \
 десятков: ${Math.trunc(inputNumber % 100 / 10)}, \
 единиц: ${Math.trunc(inputNumber % 10)}.`);
+
 </script>
 </body>
 </html>

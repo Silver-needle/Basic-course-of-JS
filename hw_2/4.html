@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо реализовать четыре функции, каждая функция должна принимать по два
@@ -28,10 +30,45 @@
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    const a = null;
+    const b = null;
+
+    /**
+    *  Стрелочная функция возвращает сумму переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    const calcAmount = (a, b) => console.log(`1. ${a + b}`);
+    calcAmount(a, b);
+
+    /**
+    * Стрелочная функция возвращает абсолютное значение разности 
+    переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    const calcDifference = (a, b) => console.log(`2. ${Math.abs(a - b)}`);
+    calcDifference(a, b);
+
+    /**
+    * Стрелочная функция возвращает произведение переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    const calcMultiplication = (a, b) => console.log(`3. ${a * b}`);
+    calcMultiplication(a, b);
+
+    /**
+    * Стрелочная функция возвращает частное от переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    const calcDivision = (a, b) => console.log(`4. ${a / b}`);
+    calcDivision(a, b);
+  </script>
 </body>
+
 </html>
