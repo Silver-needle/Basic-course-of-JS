@@ -34,68 +34,77 @@ Infinity делать не нужно, однако, в случае если б
   <script>
     "use strict";
 
-    const a = 5;//+prompt(`Введите число 'a'`);
-    const b = 2;//+prompt(`Введите число 'b'`);
-    const operation = "/"; 
+    const a = +prompt(`Введите число 'a'`);
+    const b = +prompt(`Введите число 'b'`);
+    const operation = prompt(`Введите математический оператор (+-*/)`);
     const arg1 = a;
     const arg2 = b; 
 
-    
-
+    mathOperation(arg1, arg2, operation);
+/**
+ * Функция определяет, какую из функций математических вычислений следует 
+ * применить, основываясь на вводных данных.
+ * Результат выводит в консоль.
+    * @param {number} arg1 - дубль первого принимаемого числа, равный `a`.
+    * @param {number} arg2 - дубль второго принимаемого числа, равный `b`.
+    * @param {string} operation - принимаемый строковый математический оператор.
+    * @returns {number} или {string} возвращает результат вычислений по 
+    * оператору operation и вводным аргументам; при некорретных вводных данных 
+    * выведет в браузер NaN.
+    */
   function mathOperation(arg1, arg2, operation) {
-    
     switch (arg1, arg2, operation) {
       case "+":
-      return console.log(calcAmount(a, b));
-      
+      return calcAmount(arg1, arg2);
       case "-":
-      return console.log(calcDifference);
-      
+      return calcDifference(arg1, arg2);
       case "*":
-      return console.log(calcMultiplication);
-      
+      return calcMultiplication(arg1, arg2);
       case operation = "/":
       return calcDivision(arg1, arg2);
-      
       default:
-      return console.log('NaN');
+      return alert('NaN');
     }
   }
 
     /**
-    *  Стрелочная функция возвращает сумму переданных аргументов a и b.
+    *  Функция выводит в браузер сумму переданных аргументов a и b.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @returns {number} возвращает результат вычислений, если все вводные данные
+    * корректны.
     */
-    const calcAmount = (a, b) => a + b;
-    calcAmount(a, b);
+    function calcAmount(a, b) {
+      return alert(a + b);
+    } 
 
     /**
-    * Стрелочная функция возвращает абсолютное значение разности 
+    * Функция выводит в браузер абсолютное значение разности 
     переданных аргументов a и b.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
     */
-    const calcDifference = (a, b) => Math.abs(a - b);
-    calcDifference(a, b);
-
-    /**
-    * Стрелочная функция возвращает произведение переданных аргументов a и b.
-    * @param {number} a - первое принимаемое число.
-    * @param {number} b - второе принимаемое число.
-    */
-    const calcMultiplication = (a, b) => a * b;
-    calcMultiplication(a, b);
-
-    /**
-    * Стрелочная функция возвращает частное от переданных аргументов a и b.
-    * @param {number} a - первое принимаемое число.
-    * @param {number} b - второе принимаемое число.
-    */
-    function calcDivision(a, b){
-      return console.log(a / b);
+    function calcDifference(a, b) {
+      return alert(Math.abs(a - b));
     } 
-    mathOperation(arg1, arg2, operation);
+
+    /**
+    * Функция выводит в браузер произведение переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    function calcMultiplication(a, b) {
+      return alert(a * b);
+    } 
+
+    /**
+    * Функция выводит в браузер частное от переданных аргументов a и b.
+    * @param {number} a - первое принимаемое число.
+    * @param {number} b - второе принимаемое число.
+    */
+    function calcDivision(a, b) {
+      return alert(a / b);
+    } 
   </script>
 </body>
 
