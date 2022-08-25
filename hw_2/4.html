@@ -33,44 +33,53 @@
   <script>
     "use strict";
 
-    const a = null;
-    const b = null;
-
     /**
     * Стрелочная функция возвращает сумму переданных аргументов a и b. 
     * Результат выводит в консоль.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @return {number} функция возвращает результат вычислений.
     */
-    const calcAmount = (a, b) => console.log(`1. ${a + b}`);
-    calcAmount(a, b);
+    const calcAmount = (a, b) => {
+      return a + b;
+    }
+    console.log(calcAmount(a, b));
 
     /**
     * Стрелочная функция возвращает абсолютное значение разности 
     переданных аргументов a и b. Результат выводит в консоль.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @return {number} функция возвращает результат вычислений.
     */
-    const calcDifference = (a, b) => console.log(`2. ${Math.abs(a - b)}`);
-    calcDifference(a, b);
+
+    const calcDifference = (a, b) => {
+      return (Math.abs(a - b));
+    }
+    console.log(calcDifference(a, b));
 
     /**
     * Стрелочная функция возвращает произведение переданных аргументов a и b.
     * Результат выводит в консоль.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @return {number} функция возвращает результат вычислений.
     */
-    const calcMultiplication = (a, b) => console.log(`3. ${a * b}`);
-    calcMultiplication(a, b);
-
+    const calcMultiplication = (a, b) => {
+      return a * b;
+    }
+    console.log(calcMultiplication(a, b));
     /**
     * Стрелочная функция возвращает частное от переданных аргументов a и b.
     * Результат выводит в консоль.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @return {number} функция возвращает результат вычислений.
     */
-    const calcDivision = (a, b) => console.log(`4. ${a / b}`);
-    calcDivision(a, b);
+    const calcDivision = (a, b) => {
+      return a / b;
+    }
+    console.log(calcDivision(a, b));
   </script>
 </body>
 

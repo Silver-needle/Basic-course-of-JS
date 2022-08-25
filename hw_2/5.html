@@ -37,10 +37,8 @@ Infinity делать не нужно, однако, в случае если б
     const a = +prompt(`Введите число 'a'`);
     const b = +prompt(`Введите число 'b'`);
     const operation = prompt(`Введите математический оператор (+-*/)`);
-    const arg1 = a;
-    const arg2 = b; 
 
-    mathOperation(arg1, arg2, operation);
+    console.log(mathOperation(a, b, operation));
 /**
  * Функция определяет, какую из функций математических вычислений следует 
  * применить, основываясь на вводных данных.
@@ -48,22 +46,22 @@ Infinity делать не нужно, однако, в случае если б
     * @param {number} arg1 - дубль первого принимаемого числа, равный `a`.
     * @param {number} arg2 - дубль второго принимаемого числа, равный `b`.
     * @param {string} operation - принимаемый строковый математический оператор.
-    * @returns {number} или {string} возвращает результат вычислений по 
+    * @returns {number} возвращает результат вычислений по 
     * оператору operation и вводным аргументам; при некорретных вводных данных 
-    * выведет в браузер NaN.
+    * выведет NaN.
     */
   function mathOperation(arg1, arg2, operation) {
-    switch (arg1, arg2, operation) {
+    switch (operation) {
       case "+":
-      return calcAmount(arg1, arg2);
+        return calcAmount(arg1, arg2);
       case "-":
-      return calcDifference(arg1, arg2);
+        return calcDifference(arg1, arg2);
       case "*":
-      return calcMultiplication(arg1, arg2);
-      case operation = "/":
-      return calcDivision(arg1, arg2);
+        return calcMultiplication(arg1, arg2);
+      case "/":
+        return calcDivision(arg1, arg2);
       default:
-      return alert('NaN');
+        return NaN;
     }
   }
 
@@ -71,39 +69,45 @@ Infinity делать не нужно, однако, в случае если б
     *  Функция выводит в браузер сумму переданных аргументов a и b.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
-    * @returns {number} возвращает результат вычислений, если все вводные данные
+    * @return {number} возвращает результат вычислений, если все вводные данные
     * корректны.
     */
     function calcAmount(a, b) {
-      return alert(a + b);
+      return a + b;
     } 
 
     /**
-    * Функция выводит в браузер абсолютное значение разности 
+    * Функция возвращает абсолютное значение разности 
     переданных аргументов a и b.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @return {number} возвращает результат вычислений, если все вводные данные
+    * корректны.
     */
     function calcDifference(a, b) {
-      return alert(Math.abs(a - b));
+      return Math.abs(a - b);
     } 
 
     /**
-    * Функция выводит в браузер произведение переданных аргументов a и b.
+    * Функция возвращает произведение переданных аргументов a и b.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @return {number} возвращает результат вычислений, если все вводные данные
+    * корректны.
     */
     function calcMultiplication(a, b) {
-      return alert(a * b);
+      return a * b;
     } 
 
     /**
-    * Функция выводит в браузер частное от переданных аргументов a и b.
+    * Функция возвращает частное от переданных аргументов a и b.
     * @param {number} a - первое принимаемое число.
     * @param {number} b - второе принимаемое число.
+    * @return {number} возвращает результат вычислений, если все вводные данные
+    * корректны.
     */
     function calcDivision(a, b) {
-      return alert(a / b);
+      return a / b;
     } 
   </script>
 </body>
