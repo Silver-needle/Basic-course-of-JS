@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -47,10 +49,125 @@
 что-нибудь пропустить.
 4. Если непонятно условие - задайте вопрос.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    // Ф-ия-конструктор для поста примет лишь имя автора и текcт поста.
+    function PostES5(author, text) {
+      // Ставим нужные св-ва новому объекту.
+      this.author = autor;
+      this.text = text;
+      // Дата последнего изменения будет текущая, т.к. пост только что создался.
+      this.updatedAt = new Date();
+    }
+
+    // Добавим в прототип будущих объектов: метод edit, который будет принимать
+    // новый текст поста и сохранит его в объект.
+    PostES5.prototype.edit = function (text) {
+      this.text = text;
+      // Не забываем изменить дату последнего обновления, т.к. только что
+      // изменили текст поста.
+      this.updatedAt = new Date();
+    };
+
+    const postES5 = new PostES5('Павел', 'Текст поста');
+    console.log(postES5);
+    setTimeout(() => {
+      postES5.edit('Новый текст поста');
+      console.log(postES5);
+    }, 1000)
+
+    // Ф-ия-конструктор для закрепленного поста, принимает только имя автора
+    // и текст поста.
+    function AttachedPostES5(autor, text) {
+      // Необходимо выполнить все действия для нашего объекта, которые выполняет
+      // обычный Post, т.к. мы от него наследуемся, он проставит автора, текст
+      // и дату последнего изменения.
+      PostES5.call(this, author, text);
+      // У нашего объекта есть еще одно св-во highlighted, которое по умолчанию
+      // имеет false  и не задается при создании объекта.
+      this.highlighted = false;
+    }
+    // Создаем новый объект, который будет служить прототипом для объектов,
+    // созданных от ф-ии-конструктора AttachedPostES5. У этого объекта будет
+    // свой прототип - PostES5.prototype.
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    // Так как выше мы создали новый объект, у него не будет св-ва constructor.
+    // Это св-во желательно создать, в нем лежит ссылка на ф-ию-конструктор.
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+    // Добавляем в прототип будущих объектов метод makeTextHighlited, который
+    // подсветит закрепленный пост
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+      this.highlighted = true;
+      // Не забываем изменить дату последнего обновления, так как только что
+      // подсветили наш пост.
+      this.updatedAt = new Date();
+    };
+
+    const attachedES5 = new AttachedPostES5('Павел', 'Текст поста');
+    console.log(attachedES5);
+    attachedES5.makeTextHighlighted();
+    attachedES5.edit('Новый текст закрепленного поста');
+    console.log(attachedES5);
+
+    // ---
+
+    // Класс для поста
+    class PostES6 {
+      // Конструктор принимает только имя автора и текста поста.
+      constructor(author, text) {
+        // Ставим нужные свойства новому объекту.
+        this.autor = autor;
+        this.text = text;
+        // Дата последнего изменения будет текущая, т.к. пост только что создался.
+        this.date = new Date();
+      }
+
+      // Метод edit будет принимать новый текст поста и сохранит его в объект. 
+      edit(text) {
+        this.text = text;
+        // Не забываем изменить дату последнего обновления, так как только что
+        // изменили текст поста.
+        this.date = new Date();
+      }
+    }
+    const postES6 = new PostES6('Павел', 'Текст для поста');
+    console.log(postES6);
+    postES6.edit('Новый текст статьи');
+    console.log(postES6);
+
+    // Класс для закрепленного поста, наследуется от обычного поста.
+    class AttachedPostES6 extends PostES6 {
+      // Можно создать св-во highlighted в конструкторе, однако, если значение
+      // св-ва ставится по умолчанию и при создании объекта мы не должны
+      // передавать значение этого св-ва, то св-во можно создать прям в теле
+      // класса.
+      highlighted = false;
+      //Конструктор принимает только имя автора и текст поста.
+      // Так как конструктор ничего не делает, кроме того, что вызывает базовый
+      // класс, его можно вообще не писать, в таком случае будет использоваться
+      // конструктор базового класса по умолчанию.
+      // constructor(autor, text) {
+      // Вызываем родительский конструктор класса PostES6 (от него наследуемся)
+      // super(author, text)
+      // }
+
+      // Метод makeTextHighlighted подсвечивает закрепленный пост
+      makeTextHighlighted() {
+        this.highlighed = true;
+        // Не забываем изменить дату последнего обновления, так как только что
+        // подсветили наш пост.
+        this.date = new Date();
+      }
+    }
+
+    const attachedPostES6 = new AttachedPostES5('Павел', 'Текст для поста');
+    console.log(attachedPostES6);
+    attachedPostES6.makeTextHighlighted();
+    attachedPostES6.edit('Новый текст статьи');
+    console.log(attachedPostES6);
+  </script>
 </body>
+
 </html>
