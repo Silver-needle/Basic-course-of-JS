@@ -1,1 +1,1 @@
-# Basic-course-of-JS
+Основные операторы JavaScript
