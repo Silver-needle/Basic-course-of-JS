@@ -1,1 +1,1 @@
-# Basic-course-of-JS
+Введение в DOM
