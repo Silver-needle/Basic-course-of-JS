@@ -1,1 +1,1 @@
-# Basic-course-of-JS
+Объекты в JavaScript
